@@ -11,7 +11,7 @@
   "sources": {
     "satino": {
       "type": "vector",
-      "tiles": ["https://gtitov.github.io/cybersatino//satino/{z}/{x}/{y}.pbf"]
+      "tiles": ["https://gtitov.github.io/cybersatino/satino/{z}/{x}/{y}.pbf"]
     }
   },
   "layers": [
