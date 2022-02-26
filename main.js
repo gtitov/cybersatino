@@ -11,34 +11,30 @@ const map = new maplibregl.Map({
   style: "./cybersatino.json"
 });
 
+map.getCanvas().style.cursor = 'pointer';
+
 layers = ['landUse', 'waterLines', 'waterPolygons', 'contours', 'roadsBlur']
 
 map.on('click', (e) => {
   const coordinates = e.lngLat
   let description = "";
+  const bbox = [
+    [e.point.x - 2, e.point.y - 2],
+    [e.point.x + 2, e.point.y + 2]
+  ];
+  // TODO: create rectangle representing the bbox on click and hide it after 2sec https://github.com/mapbox/mapbox-gl-js/issues/9209
 
 
-  const features = map.queryRenderedFeatures([e.point.x, e.point.y], { layers: layers })
-  console.log(features)
+  const features = map.queryRenderedFeatures(bbox, { layers: layers })
   features.forEach(feature => {
-    console.log(feature.properties)
-    if(feature.properties.Land_Type) description += feature.properties.Land_Type + "<br>"
-    if(feature.properties.RiverName) description += feature.properties.RiverName + "<br>"
+    console.log(feature)
+    if (feature.properties.Land_Type) description += feature.properties.Land_Type + "<br>"
+    if (feature.properties.RiverName) description += feature.properties.RiverName + "<br>"
+    if (feature.properties.Value_) description += "Горизонталь " + feature.properties.Value_ + " м<br>"
+    if (feature.sourceLayer == "roads") description += "Дорога<br>"
   });
-  new maplibregl.Popup({className: "popup"})
+  new maplibregl.Popup()
     .setLngLat(coordinates)
     .setHTML(description)
     .addTo(map);
 });
-
-// // Change the cursor to a pointer when the mouse is over the places layer.
-// layers.forEach(layer => {
-//   map.on('mouseenter', layer, () => {
-//     map.getCanvas().style.cursor = 'pointer';
-//   });
-
-//   // Change it back to a pointer when it leaves.
-//   map.on('mouseleave', layer, () => {
-//     map.getCanvas().style.cursor = '';
-//   });
-// });
