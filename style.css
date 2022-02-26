@@ -61,16 +61,10 @@ body {
 }
 
 @keyframes blinker {
-  85% {
+  85%, 90% {
     opacity: 1;
   }
-  88% {
-    opacity: 0.7;
-  }
-  90% {
-    opacity: 1;
-  }
-  92% {
+  88%, 92% {
     opacity: 0.7;
   }
 }
