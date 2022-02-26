@@ -1,0 +1,102 @@
+{
+  "version": 8,
+  "name": "cyberSatino",
+  "metadata": {
+    "maputnik:license": "https://github.com/maputnik/osm-liberty/blob/gh-pages/LICENSE.md",
+    "maputnik:renderer": "mbgljs",
+    "openmaptiles:version": "3.x"
+  },
+  "center": [36.35563, 55.21056],
+  "zoom": 13,
+  "sources": {
+    "satino": {
+      "type": "vector",
+      "tiles": ["http://localhost:5500/satino/{z}/{x}/{y}.pbf"]
+    }
+  },
+  "layers": [
+    {"id": "back", "type": "background"},
+    {
+      "id": "landUse",
+      "type": "fill",
+      "source": "satino",
+      "source-layer": "landUse",
+      "filter": ["all"],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": [
+          "match",
+          ["get", "Land_Type"],
+          "Леса",
+          "#160016",
+          "Луга",
+          "#0F000F",
+          "Пашни",
+          "#0F000F",
+          "Заболоченные земли",
+          "#000022",
+          "Территории населенных пунктов",
+          "#191919",
+          "#000000"
+        ],
+        "fill-opacity": 1
+      }
+    },
+    {
+      "id": "waterPolygons",
+      "type": "fill",
+      "source": "satino",
+      "source-layer": "waterPolygons",
+      "paint": {"fill-color": "#000011", "fill-antialias": false}
+    },
+    {
+      "id": "waterOutline",
+      "type": "line",
+      "source": "satino",
+      "source-layer": "waterPolygons",
+      "paint": {"line-color": "rgba(82, 84, 250, 1)", "line-width": 1}
+    },
+    {
+      "id": "waterLines",
+      "type": "line",
+      "source": "satino",
+      "source-layer": "waterLines",
+      "paint": {"line-color": "rgba(82, 84, 250, 1)", "line-width": 1}
+    },
+    {
+      "id": "contours",
+      "type": "line",
+      "source": "satino",
+      "source-layer": "contoursBasic",
+      "paint": {
+        "line-width": ["case", ["==", ["%", ["get", "Value_"], 10], 0], 1, 0.5],
+        "line-color": "#004D0A"
+      }
+    },
+    {
+      "id": "roadsBlur",
+      "type": "line",
+      "source": "satino",
+      "source-layer": "roads",
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(255, 124, 0, 0.6)",
+        "line-width": 5,
+        "line-blur": 5
+      }
+    },
+    {
+      "id": "roads",
+      "type": "line",
+      "source": "satino",
+      "source-layer": "roads",
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(255, 124, 0, 0.6)",
+        "line-width": 1,
+        "line-blur": 1
+      }
+    }
+  ],
+  "id": "cybersatino"
+}
