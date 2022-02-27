@@ -1,11 +1,11 @@
 const map = new maplibregl.Map({
   container: 'map',
-  center: [36.36563, 55.21056], // starting position [lng, lat]
-  zoom: 14, // starting zoom
+  center: [36.36563, 55.21050], // starting position [lng, lat]
+  zoom: 10, // starting zoom
   minZoom: 10,
   maxZoom: 20,
   maxBounds: [
-    [36.29, 55.18], // westSouth coordinates
+    [36.29, 55.178], // westSouth coordinates
     [36.44, 55.24] // eastNorth coordinates
   ],
   style: "./cybersatino.json"
