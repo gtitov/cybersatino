@@ -96,6 +96,41 @@
         "line-width": 1,
         "line-blur": 1
       }
+    },
+    {
+      "id": "frameBlur2",
+      "type": "line",
+      "source": "satino",
+      "source-layer": "frame",
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "#d42cca",
+        "line-width": 10,
+        "line-blur": 10
+      }
+    },
+    {
+      "id": "frameBlur1",
+      "type": "line",
+      "source": "satino",
+      "source-layer": "frame",
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "#ffd5ff",
+        "line-width": 5,
+        "line-blur": 5
+      }
+    },
+    {
+      "id": "frame",
+      "type": "line",
+      "source": "satino",
+      "source-layer": "frame",
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "#ffffff",
+        "line-width": 1
+      }
     }
   ],
   "id": "cybersatino"
