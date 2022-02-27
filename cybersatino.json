@@ -6,27 +6,42 @@
     "maputnik:renderer": "mbgljs",
     "openmaptiles:version": "3.x"
   },
-  "center": [36.35563, 55.21056],
+  "center": [
+    36.35563,
+    55.21056
+  ],
   "zoom": 13,
   "sources": {
     "satino": {
       "type": "vector",
-      "tiles": ["https://gtitov.github.io/cybersatino/satino/{z}/{x}/{y}.pbf"]
+      "tiles": [
+        "http://localhost:5500/satino/{z}/{x}/{y}.pbf"
+      ]
     }
   },
   "layers": [
-    {"id": "back", "type": "background"},
+    {
+      "id": "back",
+      "type": "background"
+    },
     {
       "id": "landUse",
       "type": "fill",
       "source": "satino",
       "source-layer": "landUse",
-      "filter": ["all"],
-      "layout": {"visibility": "visible"},
+      "filter": [
+        "all"
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
         "fill-color": [
           "match",
-          ["get", "Land_Type"],
+          [
+            "get",
+            "Land_Type"
+          ],
           "Леса",
           "#160016",
           "Луга",
@@ -43,25 +58,45 @@
       }
     },
     {
+      "id": "buildingsPseudo",
+      "type": "fill",
+      "source": "satino",
+      "source-layer": "buildingsPseudo",
+      "minzoom": 12,
+      "maxzoom": 14,
+      "paint": {
+        "fill-color": "#333333"
+      }
+    },
+    {
       "id": "waterPolygons",
       "type": "fill",
       "source": "satino",
       "source-layer": "waterPolygons",
-      "paint": {"fill-color": "#000011", "fill-antialias": false}
+      "paint": {
+        "fill-color": "#000011",
+        "fill-antialias": false
+      }
     },
     {
       "id": "waterOutline",
       "type": "line",
       "source": "satino",
       "source-layer": "waterPolygons",
-      "paint": {"line-color": "rgba(82, 84, 250, 1)", "line-width": 1}
+      "paint": {
+        "line-color": "rgba(82, 84, 250, 1)",
+        "line-width": 1
+      }
     },
     {
       "id": "waterLines",
       "type": "line",
       "source": "satino",
       "source-layer": "waterLines",
-      "paint": {"line-color": "rgba(82, 84, 250, 1)", "line-width": 1}
+      "paint": {
+        "line-color": "rgba(82, 84, 250, 1)",
+        "line-width": 1
+      }
     },
     {
       "id": "contours",
@@ -69,7 +104,23 @@
       "source": "satino",
       "source-layer": "contoursBasic",
       "paint": {
-        "line-width": ["case", ["==", ["%", ["get", "Value_"], 10], 0], 1, 0.5],
+        "line-width": [
+          "case",
+          [
+            "==",
+            [
+              "%",
+              [
+                "get",
+                "Value_"
+              ],
+              10
+            ],
+            0
+          ],
+          1,
+          0.5
+        ],
         "line-color": "#004D0A"
       }
     },
@@ -78,7 +129,9 @@
       "type": "line",
       "source": "satino",
       "source-layer": "roads",
-      "layout": {"visibility": "visible"},
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
         "line-color": "rgba(255, 124, 0, 0.6)",
         "line-width": 5,
@@ -90,7 +143,9 @@
       "type": "line",
       "source": "satino",
       "source-layer": "roads",
-      "layout": {"visibility": "visible"},
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
         "line-color": "rgba(255, 124, 0, 0.6)",
         "line-width": 1,
@@ -98,11 +153,30 @@
       }
     },
     {
+      "id": "buildingsPseudo3d",
+      "source": "satino",
+      "source-layer": "buildingsPseudo",
+      "type": "fill-extrusion",
+      "minzoom": 13,
+      "paint": {
+        "fill-extrusion-color": "#444444",
+        "fill-extrusion-height": [
+          "interpolate", ["linear"], ["zoom"],
+          13.5, ["get", "Height"],
+          13.7, ["*", ["get", "Height"], 10]
+        ],
+        "fill-extrusion-base": 0,
+        "fill-extrusion-opacity": 1
+      }
+    },
+    {
       "id": "frameBlur2",
       "type": "line",
       "source": "satino",
       "source-layer": "frame",
-      "layout": {"visibility": "visible"},
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
         "line-color": "#d42cca",
         "line-width": 15,
@@ -114,7 +188,9 @@
       "type": "line",
       "source": "satino",
       "source-layer": "frame",
-      "layout": {"visibility": "visible"},
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
         "line-color": "#ffd5ff",
         "line-width": 8,
@@ -126,7 +202,9 @@
       "type": "line",
       "source": "satino",
       "source-layer": "frame",
-      "layout": {"visibility": "visible"},
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
         "line-color": "#ffffff",
         "line-width": 1

@@ -1,7 +1,7 @@
 const map = new maplibregl.Map({
   container: 'map',
   center: [36.36563, 55.21050], // starting position [lng, lat]
-  zoom: 10, // starting zoom
+  zoom: 12, // starting zoom
   minZoom: 10,
   maxZoom: 20,
   maxBounds: [
