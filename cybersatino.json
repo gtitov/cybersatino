@@ -153,23 +153,6 @@
       }
     },
     {
-      "id": "buildingsPseudo3d",
-      "source": "satino",
-      "source-layer": "buildingsPseudo",
-      "type": "fill-extrusion",
-      "minzoom": 13,
-      "paint": {
-        "fill-extrusion-color": "#444444",
-        "fill-extrusion-height": [
-          "interpolate", ["linear"], ["zoom"],
-          13.5, ["get", "Height"],
-          13.7, ["*", ["get", "Height"], 10]
-        ],
-        "fill-extrusion-base": 0,
-        "fill-extrusion-opacity": 1
-      }
-    },
-    {
       "id": "frameBlur2",
       "type": "line",
       "source": "satino",
@@ -208,6 +191,23 @@
       "paint": {
         "line-color": "#ffffff",
         "line-width": 1
+      }
+    },
+    {
+      "id": "buildingsPseudo3d",
+      "source": "satino",
+      "source-layer": "buildingsPseudo",
+      "type": "fill-extrusion",
+      "minzoom": 13,
+      "paint": {
+        "fill-extrusion-color": "#444444",
+        "fill-extrusion-height": [
+          "interpolate", ["linear"], ["zoom"],
+          13.5, ["get", "Height"],
+          13.7, ["*", ["get", "Height"], 10]
+        ],
+        "fill-extrusion-base": 0,
+        "fill-extrusion-opacity": 1
       }
     }
   ],
