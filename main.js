@@ -11,6 +11,11 @@ const map = new maplibregl.Map({
   style: "./cybersatino.json"
 });
 
+
+
+
+// Popups
+
 map.getCanvas().style.cursor = 'pointer';
 
 layers = ['landUse', 'waterLines', 'waterPolygons', 'contours', 'roadsBlur', 'stars-blur1']
@@ -39,6 +44,23 @@ map.on('click', (e) => {
     .setHTML(description)
     .addTo(map);
 });
+
+
+
+
+// Controls
+
+
+map.addControl(new maplibregl.ScaleControl());
+const scalebar = document.getElementsByClassName("maplibregl-ctrl-scale")[0]
+scalebar.classList.add("blinking");
+map.addControl(new maplibregl.AttributionControl({compact: true,customAttribution: 'Данные: Географический факультет МГУ имени М. В. Ломоносова<br><a href="https://github.com/gtitov/cybersatino">Исходный код</a><br><a href="#">Герман Титов</a>, 2022'}));
+map.addControl(new maplibregl.NavigationControl(), 'bottom-right');
+
+
+
+
+// Background
 
 const stars = {
   'type': 'MultiPoint',
