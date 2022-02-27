@@ -54,7 +54,7 @@ map.on('click', (e) => {
 map.addControl(new maplibregl.ScaleControl());
 const scalebar = document.getElementsByClassName("maplibregl-ctrl-scale")[0]
 scalebar.classList.add("blinking");
-map.addControl(new maplibregl.AttributionControl({compact: true,customAttribution: 'Данные: Географический факультет МГУ имени М. В. Ломоносова<br><a href="https://github.com/gtitov/cybersatino">Исходный код</a><br><a href="#">Герман Титов</a>, 2022'}));
+map.addControl(new maplibregl.AttributionControl({compact: true,customAttribution: '<a href="https://aentin.github.io/qgis-course/map-design-quaternary.html">Данные</a>, <a href="https://github.com/gtitov/cybersatino">Исходный код</a>, <a href="https://istina.msu.ru/profile/titovgs/">Герман Титов, 2022</a><br><a href="http://www.geogr.msu.ru/">Географический факультет МГУ имени М. В. Ломоносова</a>'}));
 map.addControl(new maplibregl.NavigationControl(), 'bottom-right');
 
 
