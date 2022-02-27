@@ -105,8 +105,8 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "#d42cca",
-        "line-width": 10,
-        "line-blur": 10
+        "line-width": 15,
+        "line-blur": 15
       }
     },
     {
@@ -117,8 +117,8 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "#ffd5ff",
-        "line-width": 5,
-        "line-blur": 5
+        "line-width": 8,
+        "line-blur": 8
       }
     },
     {
