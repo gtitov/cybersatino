@@ -23,6 +23,7 @@ body {
   background: black;
   opacity: 0.8;
   color: #B10000;
+  font-family: "Verdana", sans-serif;
 }
 
 .maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
@@ -33,16 +34,55 @@ body {
   color: #B10000;
 }
 
+.mapboxgl-ctrl-scale, .maplibregl-ctrl-scale {
+  font-family: "Kelly Slab", "Verdana", sans-serif;
+  background-color: #ffd5ff;
+  border: 1px solid #ffd5ff;
+  border-radius: 7px;
+  outline: none;
+  box-shadow: 0 0 20px #d42cca; 
+}
+
+.mapboxgl-ctrl-group, .maplibregl-ctrl-group {
+  background: #ffd5ff;
+}
+
+.mapboxgl-ctrl-group:not(:empty), .maplibregl-ctrl-group:not(:empty) {
+  box-shadow: 0 0 20px #d42cca; 
+}
+
+.mapboxgl-ctrl-attrib.mapboxgl-compact, .maplibregl-ctrl-attrib.maplibregl-compact {
+  background-color: #ffd5ff;
+  box-shadow: 0 0 20px #d42cca;
+  /* margin-right: 40px; if github icon is active */
+}
+
+.mapboxgl-ctrl-attrib-button:focus, .mapboxgl-ctrl-group button:focus, .maplibregl-ctrl-attrib-button:focus, .maplibregl-ctrl-group button:focus {
+  box-shadow: none;
+}
+
+/* #github {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #ffd5ff;
+  box-shadow: 0 0 20px #d42cca;
+  border-radius: 50%;
+  z-index: 10;
+  width: 24px;
+  height: 24px;
+} */
+
 .neon {
   color: #ffd5ff;
   text-shadow: 0 0 4px #ffd5ff, 0 0 7px #ffd5ff, 0 0 15px #d42cca;
 }
 
-.flicking-fast{
+.flicking-fast {
   animation: flicker 3s linear infinite;
 }
 
-.flicking-slow{
+.flicking-slow {
   animation: flicker 5s linear infinite;
 }
 
@@ -57,14 +97,15 @@ body {
 }
 
 .blinking {
-  animation: blinker 6s linear infinite;
+  animation: blinker 10s linear infinite;
 }
 
 @keyframes blinker {
-  85%, 90% {
-    opacity: 1;
-  }
-  88%, 92% {
-    opacity: 0.7;
-  }
+	62.999%, 64%, 64.999%, 67%, 100% {
+    opacity: 0.99;
+	}
+
+	63%, 63.999%, 65%, 66.999% {
+		opacity: 0.5;
+	}
 }
